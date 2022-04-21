@@ -47,17 +47,7 @@ class UserViewModel: ObservableObject {
             }
             .eraseToAnyPublisher()
     }
-    
-    private var passwordStrengthPublisher: AnyPublisher<String, Never> {
-        self.$password
-            .debounce(for: 0.2, scheduler: RunLoop.main)
-            .removeDuplicates()
-            .map { input in
-                return input
-            }
-            .eraseToAnyPublisher()
-    }
-    
+
     enum PasswordCheck {
         case valid
         case empty
@@ -79,7 +69,7 @@ class UserViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }
     
-    private var isFormValidPublisher: AnyPublisher<Bool, Never> {
+    var isFormValidPublisher: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest(self.isUsernameValidPublisher, self.isPasswordValidPublisher)
             .map { userNameIsValid, passwordIsValid in
                 return userNameIsValid && (passwordIsValid == .valid)
