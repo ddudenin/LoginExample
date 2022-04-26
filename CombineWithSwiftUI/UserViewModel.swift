@@ -17,8 +17,6 @@ class UserViewModel: ObservableObject {
     @Published var passwordMessage = ""
     @Published var isValid = false
     
-    private var cancellableSet: Set<AnyCancellable> = []
-    
     private var isUsernameValidPublisher: AnyPublisher<Bool, Never> {
         self.$username
             .debounce(for: 0.8, scheduler: RunLoop.main)
@@ -47,7 +45,7 @@ class UserViewModel: ObservableObject {
             }
             .eraseToAnyPublisher()
     }
-
+    
     enum PasswordCheck {
         case valid
         case empty
@@ -69,7 +67,7 @@ class UserViewModel: ObservableObject {
             .eraseToAnyPublisher()
     }
     
-    var isFormValidPublisher: AnyPublisher<Bool, Never> {
+    private var isFormValidPublisher: AnyPublisher<Bool, Never> {
         Publishers.CombineLatest(self.isUsernameValidPublisher, self.isPasswordValidPublisher)
             .map { userNameIsValid, passwordIsValid in
                 return userNameIsValid && (passwordIsValid == .valid)
@@ -83,8 +81,7 @@ class UserViewModel: ObservableObject {
             .map { valid in
                 valid ? "" : "User name must at least have 3 characters"
             }
-            .assign(to: \.self.usernameMessage, on: self)
-            .store(in: &self.cancellableSet)
+            .assign(to: &$usernameMessage)
         
         self.isPasswordValidPublisher
             .receive(on: RunLoop.main)
@@ -98,12 +95,10 @@ class UserViewModel: ObservableObject {
                     return ""
                 }
             }
-            .assign(to: \.self.passwordMessage, on: self)
-            .store(in: &self.cancellableSet)
+            .assign(to: &$passwordMessage)
         
         self.isFormValidPublisher
             .receive(on: RunLoop.main)
-            .assign(to: \.self.isValid, on: self)
-            .store(in: &self.cancellableSet)
+            .assign(to: &$isValid)
     }
 }
