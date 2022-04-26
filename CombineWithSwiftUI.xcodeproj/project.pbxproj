@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A90BBC5280DA12B00048530 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90BBC4280DA12B00048530 /* UserViewModel.swift */; };
 		0AE0DB8C280B4BE200130886 /* CombineWithSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0DB8B280B4BE200130886 /* CombineWithSwiftUIApp.swift */; };
 		0AE0DB8E280B4BE200130886 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE0DB8D280B4BE200130886 /* ContentView.swift */; };
 		0AE0DB90280B4BE300130886 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AE0DB8F280B4BE300130886 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A90BBC4280DA12B00048530 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		0AE0DB88280B4BE200130886 /* CombineWithSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineWithSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE0DB8B280B4BE200130886 /* CombineWithSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineWithSwiftUIApp.swift; sourceTree = "<group>"; };
 		0AE0DB8D280B4BE200130886 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 				0AE0DB8D280B4BE200130886 /* ContentView.swift */,
 				0AE0DB8F280B4BE300130886 /* Assets.xcassets */,
 				0AE0DB91280B4BE300130886 /* Preview Content */,
+				0A90BBC4280DA12B00048530 /* UserViewModel.swift */,
 			);
 			path = CombineWithSwiftUI;
 			sourceTree = "<group>";
@@ -111,6 +114,8 @@
 				Base,
 			);
 			mainGroup = 0AE0DB7F280B4BE200130886;
+			packageReferences = (
+			);
 			productRefGroup = 0AE0DB89280B4BE200130886 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE0DB8E280B4BE200130886 /* ContentView.swift in Sources */,
+				0A90BBC5280DA12B00048530 /* UserViewModel.swift in Sources */,
 				0AE0DB8C280B4BE200130886 /* CombineWithSwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
